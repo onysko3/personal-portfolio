@@ -1,3 +1,7 @@
+body {
+  background-color: #f5f5f5;
+}
+
 p {
     font-family: 'Noto Sans JP', sans-serif;
 }
@@ -7,4 +11,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .home-arrow {
     font-size: 30pt;
+}
+
+.social-logo {
+    font-size: 50pt;
+}
+
+#job {
+    position:relative;
+     left:-70px;
+     bottom: 14px;
+ }
+
+#brand{
+    text-decoration: none;
+    border-bottom-style: solid;
+    border-color: black;
+    border-width: 2pt;
+}
+
+#avatar {
+    border-radius: 100%;
+    object-fit: cover;
+    height: 150pt;
+    width: 150pt;
+    overflow: hidden;
+
 }
