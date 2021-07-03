@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="jumbotron mt-4">
+    <div class="mx-auto text-center">
+      <h1>TEXT</h1>
+      <p>Text</p>
+    </div>
+  </div>
+  <div class="text-center" id="contacts">
+    <a class="text-reset text-decoration-none" href="#contacts">
+      <h5 class="mb-0">Contacts</h5>
+      <span class="home-arrow"><i class="fas fa-angle-down"></i></span>
+    </a>
+  </div>
+
+  <div class="row mt-4 mb-4">
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header text-center">
+          FaceBook
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title"><img src="{% static 'image/facebook.png' %}"></h5>
+          <p class="card-text">My personal profile<br>on FaceBook</p>
+          <a href="https://www.facebook.com/onysko3/" target="_blank" class="btn btn-light">Find Me</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header text-center">
+          LinkedIn
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title"><img src="{% static 'image/linkedin.png' %}"></h5>
+          <p class="card-text">Learn more about me<br>on LinkedIn</p>
+          <a href="https://www.linkedin.com/in/onysko3/" target="_blank" class="btn btn-primary">Find Me</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header text-center">
+          GitHub
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title"><img src="{% static 'image/github.png' %}"></h5>
+          <p class="card-text">Look at my projects <br>on my GitHub</p>
+          <a href="https://github.com/onysko3" target="_blank" class="btn btn-light">Find Me</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center" id="projects">
+    <a class="text-reset text-decoration-none" href="#projects">
+      <h5 class="mb-0">My Projects</h5>
+      <span class="home-arrow"><i class="fas fa-angle-down"></i></span>
+    </a>
+  </div>
+
+
+
+
+  {% for project in project_list %}
+    <div class="card mb-3">
+
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          {% for photo in project.photos.all %}
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"
+                {% if forloop.counter0 == 0 %} class="active"{% endif %}></li>
+          {% endfor %}
+        </ol>
+
+        <div class="carousel-inner">
+          {% for photo in project.photos.all %}
+            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+            <img class="card-img-top d-block w-100" src="{{ photo.photo.url }}" alt="{{ photo.title }}">
+            <div class="carousel-caption d-none d-md-block">
+              {% if photo.title %}
+                <h5>{{ photo.title }}</h5>
+              {% endif %}
+              {% if photo.description %}
+                <p>{{ photo.description }}</p>
+              {% endif %}
+            </div>
+            </div>
+          {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+      <div class="card-body">
+        <h3 class="card-title">{{ project.title }}</h3>
+        <div class="row">
+          <div class="col-md-10">
+            {% if project.description %}
+              <p class="card-text mb-0">{{ project.description }}</p>
+            {% endif %}
+            {% if project.description %}
+              <p class="card-text mb-0"><strong>Used Technologies: </strong>{{ project.keywords }}</p>
+            {% endif %}
+          </div>
+
+          <div class="col-md-2 text-left ml-0 border-left">
+            {% if project.link_demo %}
+              <p class="mb-0">
+                <a class="text-decoration-none btn btn-link" target="_blank"
+                   href="{{ project.link_demo }}"><strong>Heroku</strong></a></p>
+            {% endif %}
+
+            {% if project.link_demo %}
+              <p class="mb-0">
+                <a class="text-decoration-none btn btn-link" target="_blank" href="{{ project.link_demo }}"><strong>Live
+                </strong></a></p>
+            {% endif %}
+
+            {% if project.github %}
+              <p class="mb-0">
+                <a class="text-decoration-none btn btn-link" target="_blank"
+                   href="{{ project.github }}"><strong>GitHub</strong></a></p>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock content %}
