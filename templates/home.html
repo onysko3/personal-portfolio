@@ -15,52 +15,6 @@
     </a>
   </div>
 
-  {% comment %}  <div class="row">
-    <div class="col-sm-4">
-      <div class="card text-center">
-        <div class="card-header text-center">
-          FaceBook
-        </div>
-        <div class="card-body text-center">
-          <h5 class="card-title"><img src="{% static 'image/facebook.png' %}"></h5>
-          <p class="card-text">My personal profile<br>on FaceBook</p>
-          <a href="https://www.facebook.com/onysko3/" target="_blank" class="btn btn-light">Find Me</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card text-center">
-        <div class="card-header text-center">
-          LinkedIn
-        </div>
-        <div class="card-body text-center">
-          <h5 class="card-title"><img src="{% static 'image/linkedin.png' %}"></h5>
-          <p class="card-text">Learn more about me<br>on LinkedIn</p>
-          <a href="https://www.linkedin.com/in/onysko3/" target="_blank" class="btn btn-primary">Find Me</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card text-center">
-        <div class="card-header text-center">
-          GitHub
-        </div>
-        <div class="card-body text-center">
-          <h5 class="card-title"><img src="{% static 'image/github.png' %}"></h5>
-          <p class="card-text">Look at my projects <br>on my GitHub</p>
-          <a href="https://github.com/onysko3" target="_blank" class="btn btn-light">Find Me</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="text-center mt-4 mb-2" id="projects">
-    <a class="text-reset text-decoration-none" href="#projects">
-      <h5 class="mb-0">My Projects</h5>
-      <span class="home-arrow"><i class="fas fa-angle-down"></i></span>
-    </a>
-  </div>{% endcomment %}
   <div class="row mt-2 pb-4">
     <div class="col-sm-4">
       <div class="text-center">
@@ -110,7 +64,7 @@
 
 
   {% for project in project_list %}
-    <div class="card mb-4">
+    <div class="card mb-4" id="projects{{ forloop.counter0 }}">
 
 
       <div id="carouselExampleIndicators{{ forloop.counter0 }}" class="carousel slide" data-ride="carousel">

@@ -9,6 +9,8 @@ class Project(models.Model):
     link_demo = models.URLField(blank=True)
     link_live = models.URLField(blank=True)
     publish = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

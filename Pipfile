@@ -10,6 +10,9 @@ pillow = "*"
 whitenoise = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+django-debug-toolbar = "==2.2"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 

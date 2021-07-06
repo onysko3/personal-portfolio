@@ -3,7 +3,7 @@ from .models import Project
 
 
 class HomePageView(ListView):
-    queryset = Project.objects.filter(publish=True)
+    queryset = Project.objects.prefetch_related('photos').filter(publish=True).order_by('-updated')
     model = Project
     context_object_name = 'project_list'
     template_name = 'home.html'
