@@ -19,8 +19,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #job {
     position:relative;
-     left:-70px;
-     bottom: 14px;
+    left:-70px;
+    bottom: 14px;
  }
 
 #brand{
@@ -37,4 +37,39 @@ h1, h2, h3, h4, h5, h6 {
     width: 150pt;
     overflow: hidden;
 
+}
+
+@media only screen and (min-width: 767.5px) {
+    .jumbo {
+        width: 65%;
+    }
+}
+
+
+@media only screen and (max-width: 767.5px) {
+    .jumbo {
+        width: 100%;
+    }
+    #jumbo-text{
+        font-size: 34pt;
+    }
+    #job{
+        font-size: 10pt;
+        left: -60px;
+        bottom: 10px;
+    }
+}
+
+.project-img {
+  display: block;
+  max-width:1200px;
+  max-height:2800px;
+  width: auto;
+  height: auto;
+}
+
+
+.carousel-control-next,
+.carousel-control-prev, .carousel-indicators  {
+    filter: invert(100%);
 }
