@@ -1,11 +1,18 @@
-body {
+.main {
   background-color: #f5f5f5;
 }
 
+
+.card {
+    border-radius: 0.55rem;
+}
+
 p {
-    font-family: 'Noto Sans JP', sans-serif;
+    color: #011627;
+    font-family: 'Open Sans', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
+    color: #011627;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -17,16 +24,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 50pt;
 }
 
-#job {
-    position:relative;
-    left:-70px;
-    bottom: 14px;
- }
 
 #brand{
     text-decoration: none;
     border-bottom-style: solid;
-    border-color: black;
+    border-color: #f5f5f5;
     border-width: 2pt;
 }
 
@@ -37,6 +39,14 @@ h1, h2, h3, h4, h5, h6 {
     width: 150pt;
     overflow: hidden;
 
+}
+
+#jumbo-rounded {
+    border-radius: 0 0 0.55rem 0.55rem;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
 }
 
 @media only screen and (min-width: 767.5px) {
@@ -50,13 +60,9 @@ h1, h2, h3, h4, h5, h6 {
     .jumbo {
         width: 100%;
     }
-    #jumbo-text{
+
+    #jumbo-text {
         font-size: 34pt;
-    }
-    #job{
-        font-size: 10pt;
-        left: -60px;
-        bottom: 10px;
     }
 }
 

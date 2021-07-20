@@ -3,57 +3,76 @@
 
 {% block content %}
 
-  <div class="jumbotron mt-4 p-2 text-center mx-auto jumbo">
-          <img src="{% static 'image/avatar.png' %}" id="avatar" class="mt-4 mb-2" alt="Oleh Onysko">
-          <h1 class="display-4 mb-0 pb-0" id="jumbo-text">Oleh O<u id="brand">nysk</u>o</h1>
-          <p id="job" class="mt-0 pt-0">BackEnd Developer</p>
-      </div>
-  <div class="text-center mt-4 mb-4" id="contacts">
+
+  <div class="jumbotron" id="jumbo-rounded" style="background-color: #2251b2;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-right">
+      <img class="" src="{% static 'image/avatar.png' %}" style="width: 220px; height: 300px; object-fit: cover;">
+          </div>
+        <div class="col-md-8">
+      <h3 class="text-light m-0 poppins">BACK-END DEVELOPER</h3>
+      <h1 class="display-3 text-light m-0">OLEH</h1>
+      <h1 class="display-3 text-light m-0">O<u id="brand">NYSK</u>O</h1>
+          <p class="text-light mt-4 poppins">Hi, my name is Oleh and I really like to code! I am a student, tech enthusiast,
+            actively learning code (back-end stuff).</div>
+        </div>
+    </div>
+  </div>
+
+
+{% comment %}  <div class="jumbotron mt-4 p-2 text-center mx-auto jumbo" style="background-color: #f6f7f8;">
+    <img src="{% static 'image/avatar.png' %}" id="avatar" class="mt-4 mb-2" alt="Oleh Onysko">
+    <h1 class="display-4 mb-0 pb-0" id="jumbo-text">Oleh O<u id="brand">nysk</u>o</h1>
+    <p id="job" class="mt-0 pt-0">BackEnd Developer</p>
+  </div>{% endcomment %}
+
+  <div class="container">
+  <div class="text-center mt-4 mb-2" id="contacts">
     <a class="text-reset text-decoration-none" href="#contacts">
       <h5 class="mb-0">Contacts</h5>
       <span class="home-arrow"><i class="fas fa-angle-down"></i></span>
     </a>
   </div>
 
-  <div class="row">
-    <div class="col-sm-4 mt-2 pb-4">
-      <div class="text-center">
-        <div class="text-center">
+
+  <div class="card-deck mx-auto">
+    <div class="card">
+      <div class="card-body m-3">
+        <div class="card-text text-center">
           <h5>
-            {#            <img src="{% static 'image/facebook.png' %}">#}
-            <i class="fab fa-facebook-square social-logo mb-2 text-dark"></i>
+            <img class="mb-3" src="{% static 'image/facebook.png' %}" alt="facebook" style="height: 76px; width: 76px;">
           </h5>
           <p>My personal profile<br>on FaceBook</p>
-          <a href="https://www.facebook.com/onysko3/" target="_blank" class="btn btn-light">Find Me</a>
+          <a href="https://www.facebook.com/onysko3/" target="_blank" class="btn btn-primary">Find Me</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-4 mt-2 pb-4">
-      <div class="text-center">
-        <div class="text-center">
+    <div class="card">
+      <div class="card-body m-3">
+        <div class="card-text text-center">
           <h5>
-            {#            <img src="{% static 'image/linkedin.png' %}">#}
-            <i class="fab fa-linkedin social-logo mb-2 text-dark"></i>
+            <img class="mb-3" src="{% static 'image/linkedin.png' %}" alt="facebook" style="height: 76px; width: 76px;">
           </h5>
           <p>Learn more about me<br>on LinkedIn</p>
           <a href="https://www.linkedin.com/in/onysko3/" target="_blank" class="btn btn-primary">Find Me</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-4 mt-2 pb-4">
-      <div class="text-center border-none">
-        <div class="text-center">
-          <h5 class="">
-            {#            <img src="{% static 'image/github.png' %}">#}
-            <i class="fab fa-github-square social-logo mb-2 text-dark"></i>
+    <div class="card">
+      <div class="card-body m-3">
+        <div class="card-text text-center">
+          <h5>
+            <img class="mb-3" src="{% static 'image/github.png' %}" alt="facebook" style="height: 76px; width: 76px;">
           </h5>
           <p class="">Look at my projects <br>on GitHub</p>
-          <a href="https://github.com/onysko3" target="_blank" class="btn btn-light">Find Me</a>
+          <a href="https://github.com/onysko3" target="_blank" class="btn btn-primary">Find Me</a>
         </div>
       </div>
     </div>
-
   </div>
+
+
 
   <div class="text-center mt-4 mb-2" id="projects">
     <a class="text-reset text-decoration-none" href="#projects">
@@ -62,45 +81,46 @@
     </a>
   </div>
 
-
+<div class="container">
   {% for project in project_list %}
     <div class="card mb-4" id="{{ project.title|slugify }}">
 
+      {% if project.photos.all %}
+        <div id="carouselExampleIndicators{{ forloop.counter0 }}" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            {% for photo in project.photos.all %}
+              <li data-target="#carouselExampleIndicators{{ forloop.counter0 }}" data-slide-to="{{ forloop.counter0 }}"
+                  {% if forloop.counter0 == 0 %} class="active"{% endif %}></li>
+            {% endfor %}
+          </ol>
 
-      <div id="carouselExampleIndicators{{ forloop.counter0 }}" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          {% for photo in project.photos.all %}
-            <li data-target="#carouselExampleIndicators{{ forloop.counter0 }}" data-slide-to="{{ forloop.counter0 }}"
-                {% if forloop.counter0 == 0 %} class="active"{% endif %}></li>
-          {% endfor %}
-        </ol>
-
-        <div class="carousel-inner">
-          {% for photo in project.photos.all %}
-            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
-              <img class="card-img-top d-block w-100 project-img" src="{{ photo.photo.url }}" alt="{{ photo.title }}">
-              <div class="carousel-caption d-none d-md-block">
-                {% if photo.title %}
-                  <h5>{{ photo.title }}</h5>
-                {% endif %}
-                {% if photo.description %}
-                  <p>{{ photo.description }}</p>
-                {% endif %}
+          <div class="carousel-inner">
+            {% for photo in project.photos.all %}
+              <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                <img class="card-img-top d-block w-100 project-img" src="{{ photo.photo.url }}" alt="{{ photo.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                  {% if photo.title %}
+                    <h5>{{ photo.title }}</h5>
+                  {% endif %}
+                  {% if photo.description %}
+                    <p>{{ photo.description }}</p>
+                  {% endif %}
+                </div>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators{{ forloop.counter0 }}" role="button"
+             data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators{{ forloop.counter0 }}" role="button"
+             data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators{{ forloop.counter0 }}" role="button"
-           data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators{{ forloop.counter0 }}" role="button"
-           data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      {% endif %}
 
 
       <div class="card-body">
@@ -116,31 +136,32 @@
               <p class="card-text mb-0"><strong>Used Technologies: </strong>{{ project.keywords }}</p>
             {% endif %}
           </div>
+          {% if project.link_demo or project.link_live or project.github %}
+            <div class="col-md-2 text-left ml-0 border-left">
+              {% if project.link_demo %}
+                <p class="mb-0">
+                  <a class="text-decoration-none btn btn-link" target="_blank"
+                     href="{{ project.link_demo }}"><i class="fas fa-link mr-2"></i><strong>Demo</strong></a></p>
+              {% endif %}
 
-          <div class="col-md-2 text-left ml-0 border-left">
-            {% if project.link_demo %}
-              <p class="mb-0">
-                <a class="text-decoration-none btn btn-link" target="_blank"
-                   href="{{ project.link_demo }}"><i class="fas fa-link mr-2"></i><strong>Demo</strong></a></p>
-            {% endif %}
+              {% if project.link_live %}
+                <p class="mb-0">
+                  <a class="text-decoration-none btn btn-link" target="_blank" href="{{ project.link_live }}"><i
+                      class="fas fa-link mr-2"></i> <strong>Live
+                  </strong></a></p>
+              {% endif %}
 
-            {% if project.link_live %}
-              <p class="mb-0">
-                <a class="text-decoration-none btn btn-link" target="_blank" href="{{ project.link_live }}"><i
-                    class="fas fa-link mr-2"></i> <strong>Live
-                </strong></a></p>
-            {% endif %}
-
-            {% if project.github %}
-              <p class="mb-0">
-                <a class="text-decoration-none btn btn-link" target="_blank"
-                   href="{{ project.github }}"><i class="fab fa-github ml-1 mr-2"></i><strong>GitHub</strong></a></p>
-            {% endif %}
-
-          </div>
+              {% if project.github %}
+                <p class="mb-0">
+                  <a class="text-decoration-none btn btn-link" target="_blank"
+                     href="{{ project.github }}"><i class="fab fa-github ml-1 mr-2"></i><strong>GitHub</strong></a></p>
+              {% endif %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
   {% endfor %}
+</div></div>
 
 {% endblock content %}
