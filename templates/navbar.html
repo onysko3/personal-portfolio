@@ -1,26 +1,31 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2251b2;">
   <div class="container">
-  <a class="navbar-brand" href="#">
-    <img src="{% static 'image/logo.png' %}" width="30" height="30" alt="">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'image/logo.png' %}" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#contacts">Contacts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link mr-2" href="#projects">My Projects</a>
-      </li>
-      <li class="nav-item active">
-        <a class="btn btn-outline-light" href="#contacts">Resume</a>
-      </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#contacts">Contacts</a>
+        </li>
+        {% if has_project %}
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        {% endif %}
+      {% if person.resume %}
+        <li class="nav-item active">
+          <a class="btn btn-outline-light ml-2" href="{{ person.resume.url   }}">Resume</a>
+        </li>
+      {% endif %}
 
-          </ul>
-  </div>
+      </ul>
     </div>
+  </div>
 </nav>

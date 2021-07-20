@@ -33,10 +33,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #avatar {
-    border-radius: 100%;
+    border-radius: 0.55rem;
     object-fit: cover;
-    height: 150pt;
-    width: 150pt;
+    width: 220px;
+    height: 300px;
     overflow: hidden;
 
 }
