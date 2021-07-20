@@ -15,7 +15,7 @@
         {% else %}
           <div class="col-md-2"></div>
         {% endif %}
-        <div class="col-md-8">
+        <div class="col-md-8" id="jumbo-content">
           <h3 class="text-light m-0 poppins">{{ person.profession }}</h3>
           <h1 class="display-3 text-light m-0">{{ person.first_name }}</h1>
           <h1 class="display-3 text-light m-0">{% autoescape off %}{{ person.last_name }}{% endautoescape %}</h1>
@@ -173,5 +173,6 @@
       {% endfor %}
     </div>
   </div>
+
 
 {% endblock content %}
