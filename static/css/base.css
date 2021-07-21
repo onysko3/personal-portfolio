@@ -7,6 +7,10 @@
     border-radius: 0.55rem;
 }
 
+.border-r {
+    border-radius: 0.55rem;
+}
+
 p {
     color: #011627;
     font-family: 'Open Sans', sans-serif;
